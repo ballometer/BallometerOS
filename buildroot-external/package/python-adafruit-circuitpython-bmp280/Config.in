@@ -1,0 +1,8 @@
+config BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_BMP280
+	bool "python-adafruit-circuitpython-bmp280"
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_BLINKA # runtime
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_BUSDEVICE # runtime
+	help
+	  CircuitPython driver for the BMP280.
+
+	  https://github.com/adafruit/Adafruit_CircuitPython_BMP280

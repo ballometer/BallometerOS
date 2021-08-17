@@ -1,0 +1,1 @@
+source "../buildroot-external/package/python-adafruit-circuitpython-bmp280/Config.in"
