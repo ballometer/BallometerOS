@@ -34,7 +34,7 @@ then the system boots into partition `mmcblk0p3` and uses the os files from boot
 
 ## Python scripts
 
-The python scripts that do the actual work of reading out the sensors and streaming the measurements to the server are located in [`board/ballometer/rootfs-overlay/root/ballometer`](https://github.com/ballometer/BallometerOS/tree/main/board/ballometer/rootfs-overlay/root/ballometer).
+The python scripts that do the actual work of reading out the sensors and streaming the measurements to the server are located in [`rootfs_overlay/root/ballometer`](https://github.com/ballometer/BallometerOS/tree/main/rootfs_overlay/root/ballometer).
 
 ## Build locally
 
