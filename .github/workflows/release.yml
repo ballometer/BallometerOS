@@ -1,0 +1,56 @@
+name: release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - v*
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: write release.json
+      run: |
+        echo "\"$(echo ${GITHUB_REF##*/})\"" > board/ballometer/rootfs-overlay/root/release.json
+    
+    - run: make ballometer_defconfig
+    - run: touch board/ballometer/data/wpa_supplicant.conf
+    - run: make
+
+    - name: compress output files
+      run: |
+        cd output/images
+        xz -kv9 rootfs.ext2
+        cd os-p2
+        tar -cf ../boot.tar .
+        cd ..
+        xz -kv9 boot.tar
+        zip sdcard.img.zip sdcard.img
+        ls -lah
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - run: python3 get_sha256_checksums.py
+    - run: cat output/images/sha256_checksums.json
+
+    - name: create release
+      if: "!contains(github.ref, 'rc')"
+      run: |
+        cd output/images
+        gh release create ${GITHUB_REF##*/} *.zip *.xz *.json
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: create prerelease
+      if: "contains(github.ref, 'rc')"
+      run: |
+        cd output/images
+        gh release create ${GITHUB_REF##*/} *.zip *.xz *.json -p
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

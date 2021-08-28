@@ -1,0 +1,28 @@
+name: build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: make ballometer_defconfig
+    - run: touch board/ballometer/data/wpa_supplicant.conf
+    - run: make
+    - name: compress output files
+      run: |
+        cd output/images
+        xz -kv9 rootfs.ext2
+        cd os-p2
+        tar -cf ../boot.tar .
+        cd ..
+        xz -kv9 boot.tar
+        zip sdcard.img.zip sdcard.img
+        ls -lah
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - run: python3 get_sha256_checksums.py
+    - run: cat output/images/sha256_checksums.json
