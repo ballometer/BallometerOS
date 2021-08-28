@@ -118,6 +118,12 @@ def list_flights():
     return result
 
 
+@app.get('/username')
+def username() -> str:
+    username, _ = ballometer.upload.get_username_password()
+    return username
+
+
 @app.get('/', response_class=fastapi.responses.HTMLResponse)
 def root():
     return '<p>Hello from store. <a href="docs">Docs</a>.</p>'
