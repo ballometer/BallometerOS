@@ -12,3 +12,4 @@ from .log_level import get_log_level
 from . import menu
 from . import wifi
 from . import update
+from . import upload

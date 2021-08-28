@@ -39,31 +39,7 @@ def startup(params):
 
     lcd.clear()
     
-    def get_username_password():
-        username = 'default-user-name'
-        password = 'default-password'
-
-        try:
-            # this file should look like
-            # {
-            #     "username": "your-username",
-            #     "password": "your-password"
-            # }
-            with open('/data/credentials.json') as f:
-                credentials = json.load(f)
-                username = credentials['username']
-                password = credentials['password']
-                
-        except json.decoder.JSONDecodeError as e:
-            print('json.decoder.JSONDecodeError ' + format(e))
-        except FileNotFoundError as e:
-            print('FileNotFoundError ' + format(e))
-        except KeyError as e:
-            print('KeyError ' + format(e))
-            
-        return username, password
-    
-    username, _ = get_username_password()
+    username, _ = ballometer.upload.get_username_password()
     
     lcd.write_string('BALLOMETER:\r\nHOI ' + username.upper())
     time.sleep(3.0)
