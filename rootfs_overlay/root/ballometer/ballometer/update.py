@@ -23,9 +23,11 @@ def get_installed_release():
         with open('/root/release.json') as f:
             return json.load(f)
     except FileNotFoundError:
-        raise UpdateError('FileNotFoundError')
+        print('Warning: /root/release.json not found')
     except json.JSONDecodeError:
-        raise UpdateError('JSONDecodeError')
+        print('Warning: /root/release.json contains invalid JSON')
+
+    return 'v0.0.0'
 
 
 def get_available_releases():
