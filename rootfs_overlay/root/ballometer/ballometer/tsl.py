@@ -1,8 +1,5 @@
-try:
-    import busio
-    import adafruit_tsl2591
-except ImportError:
-    pass
+import busio
+import adafruit_tsl2591
 
 
 class TSL:

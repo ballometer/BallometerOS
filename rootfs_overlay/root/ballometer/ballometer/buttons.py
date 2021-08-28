@@ -1,8 +1,4 @@
-try:
-    import RPi.GPIO as GPIO
-except ImportError:
-    pass
-
+import RPi.GPIO as GPIO
 import time
 
 

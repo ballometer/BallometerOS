@@ -1,8 +1,5 @@
-try:
-    import busio
-    import adafruit_sht31d
-except ImportError:
-    pass
+import busio
+import adafruit_sht31d
 
 
 class SHT:

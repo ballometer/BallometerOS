@@ -1,9 +1,5 @@
-try:
-    from adafruit_gps import GPS as ada_gps
-    import serial
-except ImportError:
-    class ada_gps:
-        pass
+from adafruit_gps import GPS as ada_gps
+import serial
 
 
 class GPS(ada_gps):

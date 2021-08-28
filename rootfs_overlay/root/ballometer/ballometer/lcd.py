@@ -1,8 +1,4 @@
-try:
-    from RPLCD.i2c import CharLCD
-except ImportError:
-    class CharLCD:
-        pass
+from RPLCD.i2c import CharLCD
 
 
 class LCD(CharLCD):

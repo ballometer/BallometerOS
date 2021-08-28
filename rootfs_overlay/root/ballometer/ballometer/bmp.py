@@ -1,8 +1,5 @@
-try:
-    import busio
-    import adafruit_bmp280
-except ImportError:
-    pass
+import busio
+import adafruit_bmp280
 
 
 class BMP:
