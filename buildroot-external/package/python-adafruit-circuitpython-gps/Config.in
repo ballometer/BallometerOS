@@ -1,0 +1,9 @@
+config BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_GPS
+	bool "python-adafruit-circuitpython-gps"
+	select BR2_PACKAGE_PYTHON_PYSERIAL # runtime
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_BLINKA # runtime
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_BUSDEVICE # runtime
+	help
+	  CircuitPython library for GPS modules.
+
+	  https://github.com/adafruit/Adafruit_CircuitPython_GPS

@@ -1,0 +1,9 @@
+config BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_LSM303_ACCEL
+	bool "python-adafruit-circuitpython-lsm303-accel"
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_BLINKA # runtime
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_BUSDEVICE # runtime
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_REGISTER # runtime
+	help
+	  CircuitPython library for LSM303 's 3-axis accelerometer.
+
+	  https://github.com/adafruit/Adafruit_CircuitPython_LSM303_Accel

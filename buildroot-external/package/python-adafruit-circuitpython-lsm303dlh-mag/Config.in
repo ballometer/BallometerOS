@@ -1,0 +1,8 @@
+config BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_LSM303DLH_MAG
+	bool "python-adafruit-circuitpython-lsm303dlh-mag"
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_BLINKA # runtime
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_BUSDEVICE # runtime
+	help
+	  CircuitPython library for LSM303DLH's 3-axis magnetometer.
+
+	  https://github.com/adafruit/Adafruit_CircuitPython_LSM303DLH_Mag

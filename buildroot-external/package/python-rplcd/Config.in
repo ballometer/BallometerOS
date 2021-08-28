@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_RPLCD
+	bool "python-rplcd"
+	help
+	  A Raspberry Pi LCD library for the widely used Hitachi
+	  HD44780 controller.
+
+	  https://github.com/dbrgn/RPLCD

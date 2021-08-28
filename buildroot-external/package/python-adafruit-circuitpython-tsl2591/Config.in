@@ -1,0 +1,8 @@
+config BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_TSL2591
+	bool "python-adafruit-circuitpython-tsl2591"
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_BLINKA # runtime
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_BUSDEVICE # runtime
+	help
+	  CircuitPython library for TSL2591 high precision light sensor.
+
+	  https://github.com/adafruit/Adafruit_CircuitPython_TSL2591

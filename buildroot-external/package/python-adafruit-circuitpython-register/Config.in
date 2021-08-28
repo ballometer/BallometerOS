@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_REGISTER
+	bool "python-adafruit-circuitpython-register"
+	help
+	  CircuitPython data descriptor classes to represent hardware
+	  registers on I2C and SPI devices.
+
+	  https://github.com/adafruit/Adafruit_CircuitPython_Register

@@ -1,0 +1,8 @@
+config BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_SHT31D
+	bool "python-adafruit-circuitpython-sht31d"
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_BLINKA # runtime
+	select BR2_PACKAGE_PYTHON_ADAFRUIT_CIRCUITPYTHON_BUSDEVICE # runtime
+	help
+	  CircuitPython library for SHT31-D temperature and humidity sensor.
+
+	  https://github.com/adafruit/Adafruit_CircuitPython_SHT31-D
