@@ -1,0 +1,2 @@
+cmdline=cmdline-p2.txt
+os_prefix=os-p2/

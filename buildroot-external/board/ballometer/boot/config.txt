@@ -1,0 +1,50 @@
+# Please note that this is only a sample, we recommend you to change it to fit
+# your needs.
+# You should override this file using a post-build script.
+# See http://buildroot.org/manual.html#rootfs-custom
+# and http://elinux.org/RPiconfig for a description of config.txt syntax
+
+# We always use the same names, the real used variant is selected by
+# BR2_PACKAGE_RPI_FIRMWARE_{DEFAULT,X,CD} choice
+start_file=start.elf
+fixup_file=fixup.dat
+
+include select.txt
+
+kernel=zImage
+
+# To use an external initramfs file
+#initramfs rootfs.cpio.gz
+
+# Disable overscan assuming the display supports displaying the full resolution
+# If the text shown on the screen disappears off the edge, comment this out
+disable_overscan=1
+
+# How much memory in MB to assign to the GPU on Pi models having
+# 256, 512 or 1024 MB total memory
+gpu_mem_256=100
+gpu_mem_512=100
+gpu_mem_1024=100
+
+# fixes rpi (3B, 3B+, 3A+, 4B and Zero W) ttyAMA0 serial console
+dtoverlay=miniuart-bt,krnbt=on
+
+dtparam=i2c_arm=on
+dtoverlay=i2c-gpio,bus=3
+
+disable_splash=1
+dtoverlay=sdtweak,overclock_50=100
+boot_delay=0
+force_turbo=1
+
+gpio=18,25=ip,pu
+
+# User presses on button A, boot in partition p2
+[gpio18=0]
+cmdline=cmdline-p2.txt
+os_prefix=os-p2/
+
+# User presses on button B, boot in partition p3
+[gpio25=0]
+cmdline=cmdline-p3.txt
+os_prefix=os-p3/
