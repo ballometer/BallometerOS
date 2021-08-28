@@ -18,3 +18,5 @@ cp ${BR2_EXTERNAL_BALLOMETER_PATH}/board/ballometer/boot/select.txt ${O}/images/
 rm -f ${O}/images/data.ext4 ${O}/images/data.ext2
 ${O}/host/sbin/mkfs.ext4 -d ${BR2_EXTERNAL_BALLOMETER_PATH}/board/ballometer/data -r 1 -N 0 -m 5 -L "data" -O ^64bit ${O}/images/data.ext2 "100M"
 ln -sf data.ext2 ${O}/images/data.ext4
+
+ln -sf ../data ${O}/target/var/db
