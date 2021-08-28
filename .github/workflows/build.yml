@@ -7,8 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: make ballometer_defconfig
-    - run: touch board/ballometer/data/wpa_supplicant.conf
+    - run: git submodule update --init
     - run: make
     - name: compress output files
       run: |
