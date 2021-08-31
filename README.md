@@ -74,6 +74,10 @@ This will trigger the release workflow and produce the release assets automatica
 For release candidates we use versions ending with ```-rc.<number>```, such as ```v1.1.20-rc.1```. 
 A git tag containing ```rc``` leads to a GitHub pre-release.
 
+## Linux Kernel
+
+The Linux Kernel version is defined by `BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION` in [`buildroot-external/configs/ballometer_defconfig`](https://github.com/ballometer/BallometerOS/blob/main/buildroot-external/configs/ballometer_defconfig). To point this variable to a new version of the Linux Kernel go to [`buildroot/configs/raspberrypi_defconfig`](https://github.com/buildroot/buildroot/blob/master/configs/raspberrypi_defconfig) and copy the value over.
+
 ## Update process
 
 Running ballometer devices download full-system updates from the [GitHub releases](https://github.com/ballometer/BallometerOS/releases) of this repository. 
