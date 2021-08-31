@@ -39,8 +39,9 @@ The python scripts that do the actual work of reading out the sensors and stream
 ## Build locally
 
 ```bash
-https://github.com/ballometer/BallometerOS.git
+git clone https://github.com/ballometer/BallometerOS.git
 cd BallometerOS
+git submodule update --init
 make ballometer_defconfig && make
 ```
 
@@ -48,10 +49,10 @@ This creates a bootable image in ```output/images/sdcard.img```.
 
 ## GitHub Actions Workflow
 
-A GitHub Actions Workflow builds the entire image on every push event, see [here](https://github.com/wipfli/buildroot/actions/workflows/build.yml) for the latest workflow runs. 
+A GitHub Actions Workflow builds the entire image on every push event, see [here](https://github.com/ballometer/BallometerOS/actions/workflows/build.yml) for the latest workflow runs. 
 This is useful to spot errors in the configuration files and makes builds more reproducible.
 
-A [release workflow](https://github.com/wipfli/buildroot/actions/workflows/release.yml) is triggered when a new tag starting with ```v*``` is pushed to GitHub. 
+A [release workflow](https://github.com/ballometer/BallometerOS/actions/workflows/release.yml) is triggered when a new tag starting with ```v*``` is pushed to GitHub. 
 This workflow puts the version from the git tag into ```board/ballometer/rootfs-overlay/root/release.json```, builds the entire image, and publishes a GitHub release with the following assets:
 
  * ```rootfs.ext2.xz``` 
@@ -75,7 +76,7 @@ A git tag containing ```rc``` leads to a GitHub pre-release.
 
 ## Update process
 
-Running ballometer devices download full-system updates from the [GitHub releases](https://github.com/wipfli/buildroot/releases) of this repository. 
+Running ballometer devices download full-system updates from the [GitHub releases](https://github.com/ballometer/BallometerOS/releases) of this repository. 
 Every release has a ```boot.tar.xz``` file which contains the linux kernel, device tree overlays, and raspberry pi bootloader files. 
 The rootfs including the programms and python scripts running in user space is contained in the release asset ```rootfs.ext2.xz```. 
 This file gets downloaded, extracted, and flashed to the passive partition by the update process.
