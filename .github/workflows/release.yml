@@ -14,10 +14,9 @@ jobs:
 
     - name: write release.json
       run: |
-        echo "\"$(echo ${GITHUB_REF##*/})\"" > board/ballometer/rootfs-overlay/root/release.json
+        echo "\"$(echo ${GITHUB_REF##*/})\"" > rootfs_overlay/root/release.json
     
-    - run: make ballometer_defconfig
-    - run: touch board/ballometer/data/wpa_supplicant.conf
+    - run: git submodule update --init
     - run: make
 
     - name: compress output files
@@ -34,7 +33,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.9
 
     - run: python3 get_sha256_checksums.py
     - run: cat output/images/sha256_checksums.json

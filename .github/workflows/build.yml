@@ -26,6 +26,6 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.9
     - run: python3 get_sha256_checksums.py
     - run: cat output/images/sha256_checksums.json
