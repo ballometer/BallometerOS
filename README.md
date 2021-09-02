@@ -85,6 +85,17 @@ Every release has a ```boot.tar.xz``` file which contains the linux kernel, devi
 The rootfs including the programms and python scripts running in user space is contained in the release asset ```rootfs.ext2.xz```. 
 This file gets downloaded, extracted, and flashed to the passive partition by the update process.
 
+## Prepare a new SD card
+
+Download `sdcard.img.zip` from the [GitHub Releases](https://github.com/ballometer/BallometerOS/releases). Extract it and flash the image to an SD card. See [here](https://www.raspberrypi.org/documentation/computers/getting-started.html) for instructions. There will be four partitions with the data partition having a size of `100 MB`. Next step is to resize the `/data` partition (see below), copy the map tiles to `/data/tiles/tiles.mbtiles`, and create a `/data/credentials.json` file which should look like this:
+
+```json
+{
+    "username": "<your-ballometer-io-username>",
+    "password": "<your-ballometer-io-password>"
+}
+```
+
 ## Resize ```/data``` partition
 
 Plug the SD card with the full system image into a raspberry pi. Check that the devices appear with
