@@ -42,7 +42,7 @@ The python scripts that do the actual work of reading out the sensors and stream
 git clone https://github.com/ballometer/BallometerOS.git
 cd BallometerOS
 git submodule update --init
-make ballometer_defconfig && make
+make
 ```
 
 This creates a bootable image in ```output/images/sdcard.img```.
