@@ -13,7 +13,7 @@ gps = ballometer.GPS()
 time_was_set = False
 while not time_was_set:
     gps.update()
-    if gps.timestamp_utc is not None:
+    if gps.timestamp_utc and 0 < gps.timestamp_utc.tm_year:
         t = time.mktime(gps.timestamp_utc)
         if t > 0:
             set_system_time(t)
