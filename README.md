@@ -112,7 +112,11 @@ fdisk /dev/sda
 # 4 (partition 4)
 # n (new)
 # p (primary)
+# enter
+# enter
 # w (write)
+# The partition table has been altered.
+# Calling ioctl() to re-read partition table
 ``` 
 
 Resize filesystem to fill partition:
