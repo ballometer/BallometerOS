@@ -41,11 +41,11 @@ def startup(params):
     
     username, _ = ballometer.upload.get_username_password()
     
-    lcd.write_string('BALLOMETER:\r\nHOI ' + username.upper())
+    lcd.write_string('RELEASE\r\n' + u.get_installed_release())
     time.sleep(3.0)
 
     lcd.clear()
-    lcd.write_string('RELEASE\r\n' + u.get_installed_release())
+    lcd.write_string('BALLOMETER:\r\nHOI ' + username.upper())
     time.sleep(1.5)
 
     return home, params
